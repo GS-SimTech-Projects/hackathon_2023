@@ -29,4 +29,4 @@ jobs:
 
       - name: run isort
         run: |
-          isort --check-only --quiet apax_nodes
+          isort --check-only --quiet hackathon

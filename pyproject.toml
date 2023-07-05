@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "hackathon"
+version = "0.1.0"
+description = "Tool to scheduel the postersession at the Status Seminar"
+authors = ["Moritz Schäfer <schaefer@theochem.uni-stuttgart.de>, Nico Segreto <segreto@theochem.uni-stuttgart.de>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "hackathon"}]
+
+[tool.poetry.dependencies]
+python = "~3.11"
+numpy = "~1.24"
+
+[tool.black]
+line-length = 90
+preview = true
+
+[tool.isort]
+profile = 'black'
+multi_line_output = 3
+
+[tool.coverage.run]
+branch = true
+source = ["hackathon"]
+
+[tool.coverage.html]
+directory = "coverage_html_report"
+
+[tool.coverage.report]
+show_missing = true

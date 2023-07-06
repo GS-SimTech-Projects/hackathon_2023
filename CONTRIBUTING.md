@@ -16,9 +16,9 @@ Next you need to install Poetry and create a new Python environment using Poetry
 
 You can install the required packages with
 
-´´´
+```
 poetry install
-´´´
+```
 
 in the rootfolder of the project.
 

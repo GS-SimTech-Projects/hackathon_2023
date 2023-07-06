@@ -14,7 +14,7 @@ git clone https://github.com/GS-SimTech-Projects/hackathon_2023.git
 
 Next you need to install Poetry and create a new Python environment using Poetry itself, conda, or other tools.
 
-You can install the required packages with 
+You can install the required packages with
 
 ´´´
 poetry install

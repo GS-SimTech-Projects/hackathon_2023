@@ -17,4 +17,4 @@ Make sure to check out the CONTRIBUTING guidelines.
 ## Specifications
 
 - the programming language is Python
-- internal representation of the data should be a networkx graph 
+- internal representation of the data should be a networkx graph

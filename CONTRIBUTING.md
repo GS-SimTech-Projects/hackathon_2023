@@ -14,11 +14,11 @@ git clone https://github.com/GS-SimTech-Projects/hackathon_2023.git
 
 Next you need to install Poetry and create a new Python environment using Poetry itself, conda, or other tools.
 
-You can install the required packages with 
+You can install the required packages with
 
-´´´
+```
 poetry install
-´´´
+```
 
 in the rootfolder of the project.
 
@@ -28,7 +28,7 @@ Create a new feature branch and start working. Good luck!
 
 Development is setup with a development branch for every group.
 New features should be implemented in indiviual feature branches and merged into the group branch using pull requests upon completion.
-It is convenient to designate someone in the group to manage and review pull requests.
+It is convenient to designate someone in the group to manage and review pull requests. For each features small unit test should be written bevor starting a pull requests.
 
 Once a group is finished with their tasks, the group branch can be merged into main.
 

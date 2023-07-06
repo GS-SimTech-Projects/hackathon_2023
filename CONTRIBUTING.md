@@ -28,7 +28,7 @@ Create a new feature branch and start working. Good luck!
 
 Development is setup with a development branch for every group.
 New features should be implemented in indiviual feature branches and merged into the group branch using pull requests upon completion.
-It is convenient to designate someone in the group to manage and review pull requests.
+It is convenient to designate someone in the group to manage and review pull requests. For each features small unit test should be written bevor starting a pull requests.
 
 Once a group is finished with their tasks, the group branch can be merged into main.
 

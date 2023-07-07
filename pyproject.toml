@@ -2,7 +2,7 @@
 name = "hackathon"
 version = "0.1.0"
 description = "Tool to scheduel the postersession at the Status Seminar"
-authors = ["Participant of the PhD. retreate"]
+authors = ["Participants of the PhD retreat"]
 license = "MIT"
 readme = "README.md"
 packages = [{include = "hackathon"}]
@@ -10,6 +10,8 @@ packages = [{include = "hackathon"}]
 [tool.poetry.dependencies]
 python = "~3.11"
 numpy = "^1.25.0"
+networkx = "^3.1"
+matplotlib = "^3.7.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"

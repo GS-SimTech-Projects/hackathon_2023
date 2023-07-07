@@ -34,3 +34,7 @@ Once a group is finished with their tasks, the group branch can be merged into m
 
 We have set up GitHub actions for running tests linting.
 Linting is done with black and isort, so make sure to run them manually or via a pre-commit hook before creating a pull request.
+
+## Communication via GitHub Issues
+
+If you identify a bug or have ideas for an improvement, you can create issues on GitHub. You can also assign individuals from other groups if you want to address specific matters directly, and you can communicate with them through comments.

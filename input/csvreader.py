@@ -1,14 +1,10 @@
 """Tool for reading the CSV room plan for the Bad Boll Seminaris."""
 
+
 import os
 from pathlib import Path
 
 import pandas as pd
-
-
-SAMPLE_PATH = (
-    Path.cwd() / "data/seminaris-hotel-badboll-conference-factsheet-A4.pdf"
-)
 
 
 def extract_floor_plan(

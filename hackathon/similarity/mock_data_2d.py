@@ -1,7 +1,69 @@
 from typing import List
 
 import matplotlib.pyplot as plt
+import networkx as nx
 import numpy as np
+
+
+def create_mock_graph():
+    data = np.loadtxt(
+        "sample_inputs/poster_data.csv", skiprows=1, dtype=str, delimiter=","
+    )
+    poster_names, keywords_1, keywords_2 = data[:, 0], data[:, 1], data[:, 2]
+    n_posters = len(poster_names)
+
+    G = nx.Graph()
+
+    rooms = [
+        ("room_00", {"pos": [0.0, 0.0], "room_name": "Stuttgart", "n_posters": 8}),
+        ("room_01", {"pos": [0.0, 1.0], "room_name": "Bad Boll", "n_posters": 16}),
+        ("room_02", {"pos": [1.0, -1.0], "room_name": "Muenchen", "n_posters": 8}),
+        ("room_03", {"pos": [-1.0, -1.0], "room_name": "Foyer", "n_posters": 20}),
+    ]
+
+    hallways = [
+        ("hw_00", {"pos": [0.0, -1.0]}),
+    ]
+    room_edges = [
+        ("room_00", "room_01", {"distance": 1.0}),
+    ]
+
+    hallway_edges = [
+        ("room_00", "hw_00", {"distance": 1.0}),
+        ("room_02", "hw_00", {"distance": 1.0}),
+        ("room_03", "hw_00", {"distance": 1.0}),
+    ]
+
+    posters = []
+    poster_edges = []
+
+    poster_counter = 0
+    for room in rooms:
+        for i in range(room[1]["n_posters"]):
+            pos = room[1]["pos"] + np.random.uniform(-0.3, 0.3, size=2)
+            distance = float(np.linalg.norm(room[1]["pos"] - pos))
+
+            attrs = {
+                "pos": (pos).tolist(),
+                "name": "None",
+                "kw_1": "None",
+                "kw_2": "None",
+                "timeslot": "None",
+                "attendence": [],
+            }
+            poster = (f"poster_{poster_counter:03d}", attrs)
+            posters.append(poster)
+            poster_edges.append((room[0], poster[0], {"distance": distance}))
+            poster_counter += 1
+
+    G.add_nodes_from(rooms)
+    G.add_nodes_from(posters)
+    G.add_nodes_from(hallways)
+    G.add_edges_from(room_edges)
+    G.add_edges_from(poster_edges)
+    G.add_edges_from(hallway_edges)
+
+    return G
 
 
 def create_mock_data(n_samples: int):

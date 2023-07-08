@@ -9,12 +9,12 @@ def create_matrix(n):
         b_symm[i][i] = 2
     return b_symm
 
-def find_pairs(A):
-    n = np.shape(A)[0]
+def find_pairs(similarity_matrix):
+    n = np.shape(similarity_matrix)[0]
     matching_pair = []
     for row in range (n):
         for column in range (row+1, n):
-            if (A[row][column]==2):
+            if (similarity_matrix[row][column]==2):
                 matching_pair.append(np.array([row,column]))
     return np.array(matching_pair)
 
@@ -60,14 +60,19 @@ def all_posters_used(cluster_lst,n_posters):
         raise ValueError('Number of posters across all clusters does not match the number of posters that were read in from file! {} posters missing'.format(abs(poster_count - n_posters)))
     return True
 
-def assign_cluster_to_room(clusters, rooms):
-    #assume rooms are ordered from more to less poster space
-    #assume clusters are ordered from more to less poster space
+def assign_cluster_to_room(cluster_lst, room_capacity):
+    '''
+    Assigns clusters to rooms based on capacity.
+    Creates a dict to keep track of what is where and how much space is left
+    '''
+    placement = {}
     i = 0
+    print(rooms)
     while (i < len(clusters)):
         for k in range(len(rooms)):
             if clusters[i]<=rooms[k]:
                 print("cluster of %d posters assigned to room %d" %(clusters[i],k+1))
+
                 rooms[k]=rooms[k]-clusters[i]
                 break
             if (k==len(rooms)-1):
@@ -77,12 +82,19 @@ def assign_cluster_to_room(clusters, rooms):
                 clusters.append(np.floor(clusters[i]/2))
                 break
         i+=1
+    return
 
-data = read_csv("../sample_inputs/poster_data.csv")
-similarity_matrix = create_similarity_matrix(data)
+def get_room_graph(graph_file):
+    
+
+poster_data = read_csv("../sample_inputs/poster_data.csv")
+similarity_matrix = create_similarity_matrix(poster_data)
 n_posters = similarity_matrix.shape[0]
 matching_pairs = find_pairs(similarity_matrix)
 cluster_lst = get_clusters(matching_pairs)
 if all_posters_used(cluster_lst,n_posters):
-    print('done!')
+    print('Posters clustered successfully!')
+room_graph_file = ''
+room_graph = get_room_graph()
+placement = assign_clusters_to room(cluster_lst,room_capacity)
 

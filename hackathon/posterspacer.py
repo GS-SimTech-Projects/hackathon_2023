@@ -3,7 +3,12 @@ room.
 """
 
 
+import os
+from pathlib import Path
+
 import numpy as np
+
+from .csvreader import extract_floor_plan
 
 
 class PosterSpacer:
@@ -277,9 +282,25 @@ class PosterSpacer:
                     pass
         return dict_of_poster_row_nodes
 
-    @classmethod
-    def get_number_of_posters():
-        ...
+    @staticmethod
+    def get_number_of_posters(
+        dict_of_poster_row_nodes: dict[dict[list[tuple]]],
+    ) -> int:
+        """Count the total number of posters for a given room by passing
+        a dict_of_poster_row_nodes.
+
+        Args:
+            dict_of_poster_row_nodes (dict[dict[list[tuple]]]): Poster rows sorted by poster walls and row indices.
+
+        Returns:
+            int: Total number of posters.
+        """
+        number_of_posters = 0
+        for poster_wall in dict_of_poster_row_nodes.values():
+            for poster_row in poster_wall.values():
+                for poster in poster_row:
+                    number_of_posters += 1
+        return number_of_posters
 
 
 if __name__ == "__main__":
@@ -288,3 +309,5 @@ if __name__ == "__main__":
     print(ran)
     prn = ps.get_poster_row_nodes()
     print(prn)
+    n = PosterSpacer.get_number_of_posters(prn)
+    print(n)

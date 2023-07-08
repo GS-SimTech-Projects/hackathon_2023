@@ -1,6 +1,6 @@
 from typing import List
-import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -8,7 +8,9 @@ def create_mock_data(n_samples: int):
     np.random.seed(1234)
     x = np.random.randn(n_samples, 3)
     theta = 3 * (x[:, 1] + 0.1 * x[:, 0])
-    x = (0.2 * x[:, 2] + x[:, 1] + 2)[:, None] * np.stack([np.sin(theta), np.cos(theta)], axis=1)
+    x = (0.2 * x[:, 2] + x[:, 1] + 2)[:, None] * np.stack(
+        [np.sin(theta), np.cos(theta)], axis=1
+    )
     return x
 
 
@@ -45,12 +47,12 @@ def plot_assignments(embeddings_2d: np.ndarray, assignments: np.ndarray) -> None
 
     for slot_idx in range(n_slots):
         is_in_slot = assignments == slot_idx
-        plt.plot(embeddings_2d[is_in_slot, 0], embeddings_2d[is_in_slot, 1], '.')
+        plt.plot(embeddings_2d[is_in_slot, 0], embeddings_2d[is_in_slot, 1], ".")
 
     plt.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     n_slots = 4
     slot_size = 30
     slot_sizes = [slot_size] * n_slots

@@ -36,8 +36,8 @@ def get_data_from_graph(G: nx.graph):
                 "kw_2": G.nodes[node]["kw_2"],
                 "pos": G.nodes[node]["pos"],
                 "name": G.nodes[node]["name"],
-                "attendence": G.nodes[node]["attendence"],
-                "timeslot": None,
+                # "attendence": G.nodes[node]["attendence"],
+                "timeslot": "None",
             }
             keywords.append([node, G.nodes[node]["kw_1"], G.nodes[node]["kw_2"]])
     return nodes, np.array(keywords)
@@ -83,22 +83,22 @@ def plot_graph_colored_time(G):
     poster_nodes_time0 = [
         node
         for node, attrs in G.nodes(data=True)
-        if node.startswith("poster") and (attrs["timeslot"] == 0)
+        if node.startswith("poster") and (attrs["timeslot"] == "0")
     ]
     poster_nodes_time1 = [
         node
         for node, attrs in G.nodes(data=True)
-        if node.startswith("poster") and (attrs["timeslot"] == 1)
+        if node.startswith("poster") and (attrs["timeslot"] == "1")
     ]
     poster_nodes_time2 = [
         node
         for node, attrs in G.nodes(data=True)
-        if node.startswith("poster") and (attrs["timeslot"] == 2)
+        if node.startswith("poster") and (attrs["timeslot"] == "2")
     ]
     poster_nodes_time3 = [
         node
         for node, attrs in G.nodes(data=True)
-        if node.startswith("poster") and (attrs["timeslot"] == 3)
+        if node.startswith("poster") and (attrs["timeslot"] == "3")
     ]
     hallway_nodes = [node for node in G.nodes if node.startswith("hw")]
     room_edges = [

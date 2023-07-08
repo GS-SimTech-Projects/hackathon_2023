@@ -1,8 +1,10 @@
 import numpy as np
+import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 
 import csvreader as csv_reader
+from posterspacer import PosterSpacer
 
 """ Script to generate the graph data from the actual hotel rooms via hardwired (for now) csv file """
 
@@ -92,7 +94,7 @@ def get_edges( connections, connect_from, connect_to ):
 room_file           = '../data/relevant_rooms.csv'
 hallway_file        = '../data/hallways.csv'
 connection_file     = '../data/connections.csv'
-room_metakeys   = ['length_in_m', 'width_in_m', 'floor']#, 'global_x', 'global_y' ]
+room_metakeys   = ['length_in_m', 'width_in_m', 'floor', 'global_x', 'global_y' ]
 hallway_metakeys = ['floor']
 
 room_data    = csv_reader.extract_floor_plan( room_file)
@@ -109,29 +111,64 @@ room_layout = nx.Graph()
 room_layout.add_nodes_from( zip( all_nodes, all_metadata) )
 room_layout.add_edges_from( room_connections)
 
+### extract the poster spaces for room
+room_posters = []
+ctr = 0
+poster_connectivities = []
+poster_metadata = []
+for room, metadata in zip( rooms, room_metadata):
+    ## allocate a poster spacer per room
+    posters = PosterSpacer( room_lower_left_corner_position=[metadata['global_x'],metadata['global_y'] ],
+            room_length=metadata['length_in_m'], room_width=metadata['length_in_m'] )
+    poster_positions = posters.get_poster_row_nodes()
+    local_posters = []
+    ## loop over all type of posters, and simply write all positions and allocate the rooms in a list
+    for poster_block in poster_positions.values():
+      for poster_row in poster_block.values():
+        for position in poster_row:
+          ctr += 1
+          poster_identifier = f'poster_{ctr}'
+          local_posters.append( [ poster_identifier, dict( room_name=poster_identifier, global_x=position[0], global_y=position[1], pos=position)] )
+          poster_connectivities.append( dict( node=poster_identifier, connects_to=room ) )
+          poster_metadata.extend( [x[-1] for x in local_posters] )
+    room_posters.append( local_posters)
+
+poster_connectivities = pd.DataFrame( poster_connectivities)
+poster_connections = get_edges( poster_connectivities, poster_metadata, room_metadata)
+
+for posters in room_posters:
+    room_layout.add_nodes_from( posters)
+room_layout.add_edges_from( poster_connections) 
+
+
+
 
 #def plot_graph(room_layout): 
-room_layout = room_layout
 ## this plotting function should be modularized, ultimately it only takes the room_nodes as input so its ez, but honestly its wayyy too late and im way too unmotivated
 if True:
     room_nodes = []
     hallway_nodes = []
+    poster_nodes = []
     for nodename, node_metadata in room_layout.nodes.data():
         if 'has_poster' in node_metadata and node_metadata['has_poster']:
             room_nodes.append( nodename)
         if 'hallway' in nodename and node_metadata['floor'] == 2:
             hallway_nodes.append( nodename) 
-    plotted_nodes = [*room_nodes, *hallway_nodes]
+        if 'poster' in nodename:
+            poster_nodes.append( nodename)
+    plotted_nodes = [*room_nodes, *hallway_nodes, *poster_nodes]
     global_connections = [(u,v) for (u,v) in room_layout.edges if u in plotted_nodes and v in plotted_nodes ] 
     pos=nx.get_node_attributes(room_layout,'pos')
     room_labels = nx.get_node_attributes(room_layout,'room_name')
     poster_labels = nx.get_node_attributes(room_layout,'name') 
     fig, ax = plt.subplots(figsize=(12, 12))
     #nx.draw_networkx_nodes(room_layout, pos, nodelist=poster_nodes, node_color="tab:blue", node_size=100)
+    nx.draw_networkx_nodes(room_layout, pos, nodelist=poster_nodes, node_color='blue', edgecolors='black' )
     nx.draw_networkx_nodes(room_layout, pos, nodelist=room_nodes, node_color="tab:red")
     nx.draw_networkx_nodes(room_layout, pos, nodelist=hallway_nodes, node_color="tab:green") 
     nx.draw_networkx_edges(room_layout, pos, width=2.0, alpha=1.0, edgelist=global_connections) 
     #nx.draw_networkx_labels(room_layout, pos, labels = room_labels)
     #nx.draw_networkx_labels(room_layout, pos, labels = poster_labels)
 
+#nx.write_gml(room_layout, "../data/floor2_room+hallway+poster_layout.gml")
 plt.show()

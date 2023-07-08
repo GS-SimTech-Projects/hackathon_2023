@@ -67,7 +67,6 @@ def assign_cluster_to_room(cluster_lst, room_info):
     Creates a dict to keep track of what is where and how much space is left
     Assumes there to be enough space for all posters given as input
     '''
-    count = 0
     while len(cluster_lst) > 0:
         cluster = cluster_lst.pop(0)
         check = False

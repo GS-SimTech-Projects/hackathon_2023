@@ -1,5 +1,5 @@
-room,square_meters,square_feet,length,width,hight,chairs_only,table_rows,u_tables,chair_circle,long_table,round_table,half_round_table,random,standing_table
-Hermannsburg,24,258.33,6.4,3.8,2.9,15,10,6,8,10,8,10,,
-Lüneburg,61,656.59,9.5,6.4,2.9,50,30,18,15,15,40,25,,50
-Potsdam,54,581.25,9.6,5.6,2.9,40,25,15,15,12,40,25,,40
-Bad Boll,31,333.68,6.8,4.6,2.9,18,10,6,8,8,8,10,,20
+room,square_meters,square_feet,length,width,hight,chairs_only,table_rows,u_tables,chair_circle,long_table,round_table,half_round_table,random,standing_table,global_x,global_y,door_x,door_y,floor
+Hermannsburg,24,258.33,6.4,3.8,2.9,15,10,6,8,10,8,10,,,15.5,0,18.55,6.34,2
+Lüneburg,61,656.59,9.5,6.4,2.9,50,30,18,15,15,40,25,,50,6,0,8.72,6.34,2
+Potsdam,54,581.25,9.6,5.6,2.9,40,25,15,15,12,40,25,,40,0,0,6.96,8.19,2
+Bad Boll,31,333.68,6.8,4.6,2.9,18,10,6,8,8,8,10,,20,0,9.5,6.96,10.36,2

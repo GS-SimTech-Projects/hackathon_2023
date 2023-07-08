@@ -13,7 +13,7 @@ def create_similarity_matrix(data: np.ndarray):
     for i in range(data.shape[0]):
         for j in range(data.shape[0]):
             matrix[i, j] = similarity(data[i], data[j])
-    assert matrix[i, i] == 2
+        assert matrix[i, i] == 2
     return matrix
 
 

@@ -2,7 +2,6 @@ import numpy as np
 from time_assignment.create_similarity_matrix import create_similarity_matrix
 from time_assignment.utils import read_csv
 
-
 def create_matrix(n):
     b = np.random.randint(0,2,size=(n,n))
     b_symm = (b + b.T)
@@ -30,3 +29,11 @@ A = create_similarity_matrix(data)
 print(A)
 matching_pair = find_pairs(A)
 print(matching_pair)
+
+#TODO
+# place one poster
+# check this posters score with all the others
+# do a ranking
+# build a cluster with maximum score
+#   first take all the score two
+#   then take score ones to fill up, if there are spots left

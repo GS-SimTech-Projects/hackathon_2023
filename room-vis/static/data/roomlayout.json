@@ -1,0 +1,14 @@
+{
+    "originMiddle": {
+        "Lüneburg": [10.76, 3.3],
+        "Hermannsburg": [17.49, 3.3],
+        "Potsdam": [2.80, 4.80],
+        "Bad Boll": [3.24, 11.83]
+    },
+"originBottomLeftCorner": {
+        "Lüneburg": [6.00, 0.00],
+        "Hermannsburg": [15.50, 0.00],
+        "Potsdam": [0.00, 0.00],
+        "Bad Boll": [0.00, 9.50]
+    }
+}

@@ -23,12 +23,35 @@ def find_pairs(A):
     return matching_pair
 
 
-data = read_csv("../sample_inputs/poster_data.csv")
-A = create_similarity_matrix(data)
+def assign_cluster_to_room(clusters, rooms):
+    #assume rooms are ordered from more to less poster space
+    #assume clusters are ordered from more to less poster space
+    i = 0
+    while (i < len(clusters)):
+        for k in range(len(rooms)):
+            if clusters[i]<=rooms[k]:
+                print("cluster of %d posters assigned to room %d" %(clusters[i],k+1))
+                rooms[k]=rooms[k]-clusters[i]
+                break
+            if (k==len(rooms)-1):
+                print("cluster of %d posters could not be placed." %(clusters[i]))
 
-print(A)
-matching_pair = find_pairs(A)
-print(matching_pair)
+                clusters.append(np.ceil(clusters[i]/2))
+                clusters.append(np.floor(clusters[i]/2))
+                break
+        i+=1
+
+# clusters = [7,5,4,3]
+# rooms = [12, 6, 2]
+
+# assign_cluster_to_room(clusters,rooms)
+
+# data = read_csv("../sample_inputs/poster_data.csv")
+# A = create_similarity_matrix(data)
+
+# print(A)
+# matching_pair = find_pairs(A)
+# print(matching_pair)
 
 #TODO
 # place one poster
@@ -37,3 +60,10 @@ print(matching_pair)
 # build a cluster with maximum score
 #   first take all the score two
 #   then take score ones to fill up, if there are spots left
+
+A = np.eye(3)
+A[1,2] = 2.0
+print(A)
+matching_pair=find_pairs(A)
+print(matching_pair)
+assign_clusters(matching_pair)

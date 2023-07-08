@@ -15,6 +15,41 @@
     let roomSizes = computeRoomSizes(dRooms);
     let postersPerRoom = findPostersPerRoom(dGraph);
 
+    function euclidean(a, b) {
+        let sum = 0;
+
+        if (a.length !== b.length) {
+            throw Error("unequal sizes");
+        }
+
+        for (let i = 0; i < a.length; i++) {
+            sum += Math.pow(a - b, 2);
+        }
+
+        return Math.sqrt(sum);
+    }
+
+    // returns a order of pairs to connect all points
+    function getRoomOrderNextNeighbor(rooms) {
+        let pairwiseDistances = [];
+
+        for (let i = 0; i < rooms.length; i++) {
+            let row = [];
+            for (let j = 0; j < rooms.length; j++) {
+                row.push(0);
+            }
+            pairwiseDistances.push(row);
+        }
+
+        for (let i = 0; i < rooms.length; i++) {
+            for (let j = 0; j < i - 1; j++) {
+                pairwiseDistances[i][j] = euclidean(rooms[i].doorPosition, rooms[j].doorPosition);
+            }
+        }
+
+        // TOOD: continue
+    }
+
     // computes room sizes from origin middle and bottom left corner
     function computeRoomSizes(rooms) {
         let sizes = {};
@@ -111,7 +146,7 @@
     <svg class="svg-layout" width={canvasWidth} height={canvasHeight}>
         <!-- Place rooms as rounded rects -->
         {#each Object.keys(roomSizes) as room}
-            <rect x={xScale(dRooms.originBottomLeftCorner[room][0])} y={canvasHeight - yScale(dRooms.originBottomLeftCorner[room][1]) - yScale(roomSizes[room].height)} width={xScale(roomSizes[room].width)} height={yScale(roomSizes[room].height)} fill="grey" rx=10 stroke="black"></rect>
+            <rect x={xScale(dRooms.originBottomLeftCorner[room][0])} y={canvasHeight - yScale(dRooms.originBottomLeftCorner[room][1]) - yScale(roomSizes[room].height)} width={xScale(roomSizes[room].width)} height={yScale(roomSizes[room].height)} fill={d3.rgb(125, 125, 125, 0.3)} rx=10 stroke="black"></rect>
         
             <!-- Place posters in room -->
             <g transform="translate({xScale(dRooms.originBottomLeftCorner[room][0]) + 0.5 * xScale(roomSizes[room].width)} {canvasHeight - yScale(dRooms.originBottomLeftCorner[room][1]) - 0.5 * yScale(roomSizes[room].height)})">
@@ -122,6 +157,13 @@
                     </circle-->
                 {/each}
             </g>
+
+            <!-- Place Door Knob -->
+            <!--circle x={xScale(dRooms.doorknob[room].x)} y={yScale(dRooms.doorknob[room].y)} fill="green">
+            </circle-->
+
+            <!-- Connect Door Knobs -->
+
         {/each}
     </svg>
 
@@ -130,9 +172,6 @@
         <!--svg width=500 height=300></svg-->
     </div>
 </div>
-
-
-
 
 <style>
     .svg-layout {

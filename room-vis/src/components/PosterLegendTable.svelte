@@ -3,7 +3,7 @@
     export let timeslot;
 
 
-    debugger;
+debugger;
 </script>
 
 <svg width=500 height=300></svg>

@@ -1,5 +1,5 @@
 import numpy as np
-from utils import read_csv
+from .utils import read_csv
 
 
 def create_similarity_matrix(data: np.ndarray):

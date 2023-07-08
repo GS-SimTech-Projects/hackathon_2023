@@ -1,4 +1,7 @@
 import numpy as np
+from time_assignment.create_similarity_matrix import create_similarity_matrix
+from time_assignment.utils import read_csv
+
 
 def create_matrix(n):
     b = np.random.randint(0,2,size=(n,n))
@@ -21,8 +24,9 @@ def find_pairs(A):
     return matching_pair
 
 
-n = 6
-A = create_matrix(n)
+data = read_csv("../sample_inputs/poster_data.csv")
+A = create_similarity_matrix(data)
+
 print(A)
 matching_pair = find_pairs(A)
 print(matching_pair)

@@ -1,15 +1,23 @@
 <script>
     import * as d3 from "d3";
+    import PosterGlyph from "../components/PosterGlyph.svelte";
+    import PosterLegendTable from "../components/PosterLegendTable.svelte";
 
     export let data;  // output of +page.js.load()
+
+    let selectedTimeslot = "None";
+
+    let dRooms = data.rooms;
+    let dGraph = data.graph;
     
-    let roomSizes = computeRoomSizes(data.rooms);
+    let roomNames = Object.keys(dRooms.originMiddle);
+
+    let roomSizes = computeRoomSizes(dRooms);
+    let postersPerRoom = findPostersPerRoom(dGraph);
 
     // computes room sizes from origin middle and bottom left corner
     function computeRoomSizes(rooms) {
         let sizes = {};
-
-        let roomNames = Object.keys(rooms.originMiddle);
 
         for (let i = 0; i < roomNames.length; i++) {
             let roomName = roomNames[i];
@@ -26,9 +34,56 @@
         return sizes;
     }
 
+    // find all posters from rooms
+    function findPostersPerRoom(graph) {
+        let postersPerRoom = {};
+
+        for (let i = 0; i < roomNames.length; i++) {
+            postersPerRoom[roomNames[i]] = {
+                roomInfo: undefined,
+                posters: []
+            };
+        }
+
+        graph.links.forEach(element => {
+            let sourceRoom;
+            let targetPoster;
+
+            if (element.source.startsWith("room") && element.target.startsWith("poster")) {
+                // find room object and poster object
+                // find room if not yet available
+                sourceRoom = graph.nodes.find((node) => {
+                    return node.id === element.source;
+                });
+
+                targetPoster = graph.nodes.find((node) => {
+                    return node.id === element.target;
+                })
+
+                if (!sourceRoom || !targetPoster) {
+                    throw Error("couldn't find poster or room for link:", element);
+                }
+
+                postersPerRoom[sourceRoom.room_name].roomInfo = sourceRoom;
+                postersPerRoom[sourceRoom.room_name].posters.push(targetPoster);
+            } else {
+                // ignore
+                return
+            }
+        });
+
+        return postersPerRoom;
+    }
+
     // create scales
-    let totalHeightRooms = roomSizes["Bad Boll"].height + roomSizes["Potsdam"].height;
-    let totalWidthRooms = roomSizes["Lüneburg"].width + roomSizes["Hermannsburg"].width + roomSizes["Potsdam"].width;
+    let minXPos = d3.min(roomNames, (name) => dRooms.originBottomLeftCorner[name][0]);
+    let maxXPos = d3.max(roomNames, (name) => dRooms.originBottomLeftCorner[name][0] + roomSizes[name].width);
+
+    let minYPos = d3.min(roomNames, (name) => dRooms.originBottomLeftCorner[name][1]);
+    let maxYPos = d3.max(roomNames, (name) => dRooms.originBottomLeftCorner[name][1] + roomSizes[name].height);
+
+    let totalHeightRooms = maxYPos - minYPos;
+    let totalWidthRooms = maxXPos - minXPos;
     
     let trueAspectRatio = totalHeightRooms / totalWidthRooms;
 
@@ -50,15 +105,30 @@
 </script>
 
 <div>
-    <p>
-        {JSON.stringify(roomSizes)};
-    </p>
+    <!--p>
+        {JSON.stringify(dGraph)};
+    </p-->
     <svg class="svg-layout" width={canvasWidth} height={canvasHeight}>
         <!-- Place rooms as rounded rects -->
         {#each Object.keys(roomSizes) as room}
-            <rect x={xScale(data.rooms.originBottomLeftCorner[room][0])} y={canvasHeight - yScale(data.rooms.originBottomLeftCorner[room][1]) - yScale(roomSizes[room].height)} width={xScale(roomSizes[room].width)} height={yScale(roomSizes[room].height)} fill="grey" rx=10 stroke="black"></rect>
+            <rect x={xScale(dRooms.originBottomLeftCorner[room][0])} y={canvasHeight - yScale(dRooms.originBottomLeftCorner[room][1]) - yScale(roomSizes[room].height)} width={xScale(roomSizes[room].width)} height={yScale(roomSizes[room].height)} fill="grey" rx=10 stroke="black"></rect>
+        
+            <!-- Place posters in room -->
+            <g transform="translate({xScale(dRooms.originBottomLeftCorner[room][0]) + 0.5 * xScale(roomSizes[room].width)} {canvasHeight - yScale(dRooms.originBottomLeftCorner[room][1]) - 0.5 * yScale(roomSizes[room].height)})">
+                {#each postersPerRoom[room].posters.filter(p => p.timeslot === selectedTimeslot) as poster}
+                    <PosterGlyph xpos={xScale(poster.pos[0])}, ypos={yScale(poster.pos[1])} keywords={[poster.kw_1, poster.kw_2]}></PosterGlyph>
+                    <!--circle rx=0 ry=0 r=5 fill="black">
+
+                    </circle-->
+                {/each}
+            </g>
         {/each}
     </svg>
+
+    <div class="poster-legend">
+        <PosterLegendTable posters={postersPerRoom} timeslot={selectedTimeslot}></PosterLegendTable>
+        <!--svg width=500 height=300></svg-->
+    </div>
 </div>
 
 
@@ -67,6 +137,13 @@
 <style>
     .svg-layout {
         border: 1px black solid;
+    }
+
+    .poster-legend {
+        position: absolute;
+        left: 475px;
+        top: 25px;
+        background: black;
     }
 </style>
 

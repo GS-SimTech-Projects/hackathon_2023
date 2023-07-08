@@ -1,0 +1,1164 @@
+{
+    "directed": false,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "pos": [
+                0.0,
+                0.0
+            ],
+            "room_name": "Potsdam",
+            "n_posters": 8,
+            "id": "room_00"
+        },
+        {
+            "pos": [
+                0.0,
+                1.0
+            ],
+            "room_name": "Bad Boll",
+            "n_posters": 16,
+            "id": "room_01"
+        },
+        {
+            "pos": [
+                1.0,
+                -1.0
+            ],
+            "room_name": "Lüneburg",
+            "n_posters": 8,
+            "id": "room_02"
+        },
+        {
+            "pos": [
+                -1.0,
+                -1.0
+            ],
+            "room_name": "Hermannsburg",
+            "n_posters": 20,
+            "id": "room_03"
+        },
+        {
+            "pos": [
+                0.02928810235639484,
+                0.1291136198234517
+            ],
+            "name": "AA",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "Visualisation",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_000"
+        },
+        {
+            "pos": [
+                0.061658025642986336,
+                0.02692990979813814
+            ],
+            "name": "AB",
+            "kw_1": "Visualisation",
+            "kw_2": "ComputationalChemistry",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_001"
+        },
+        {
+            "pos": [
+                -0.045807120396657186,
+                0.08753646783999369
+            ],
+            "name": "AC",
+            "kw_1": "Biomechanics",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_002"
+        },
+        {
+            "pos": [
+                -0.037447673242384516,
+                0.23506380046924785
+            ],
+            "name": "AD",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_003"
+        },
+        {
+            "pos": [
+                0.2781976563006176,
+                -0.06993508870453338
+            ],
+            "name": "AE",
+            "kw_1": "FluidDynamics",
+            "kw_2": "Biomechanics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_004"
+        },
+        {
+            "pos": [
+                0.17503502284959876,
+                0.017336951851742666
+            ],
+            "name": "AF",
+            "kw_1": "BayesianModeling",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_005"
+        },
+        {
+            "pos": [
+                0.040826736656359386,
+                0.2553579829755966
+            ],
+            "name": "AG",
+            "kw_1": "QuantumComputing",
+            "kw_2": "ComputationalChemistry",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_006"
+        },
+        {
+            "pos": [
+                -0.2573783650812678,
+                -0.24772242017907556
+            ],
+            "name": "AH",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_007"
+        },
+        {
+            "pos": [
+                -0.28786896153580455,
+                1.1995719073287627
+            ],
+            "name": "AI",
+            "kw_1": "Biomechanics",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_008"
+        },
+        {
+            "pos": [
+                0.1668940505699103,
+                1.2220072889480915
+            ],
+            "name": "AJ",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_009"
+        },
+        {
+            "pos": [
+                0.2871710053396584,
+                1.179495138530034
+            ],
+            "name": "AK",
+            "kw_1": "Visualisation",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_010"
+        },
+        {
+            "pos": [
+                -0.023112382648240892,
+                1.1683175057718733
+            ],
+            "name": "AL",
+            "kw_1": "Biomechanics",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_011"
+        },
+        {
+            "pos": [
+                -0.22903534447864005,
+                1.0839526127965142
+            ],
+            "name": "AM",
+            "kw_1": "FluidDynamics",
+            "kw_2": "ComputationalChemistry",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_012"
+        },
+        {
+            "pos": [
+                -0.21398802755457214,
+                1.2668013502297504
+            ],
+            "name": "AN",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "QuantumComputing",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_013"
+        },
+        {
+            "pos": [
+                0.013108993050042983,
+                0.9487971639943141
+            ],
+            "name": "AO",
+            "kw_1": "QuantumComputing",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_014"
+        },
+        {
+            "pos": [
+                -0.1412666327372238,
+                1.16454021366053
+            ],
+            "name": "AP",
+            "kw_1": "FluidDynamics",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_015"
+        },
+        {
+            "pos": [
+                -0.026309800670070882,
+                1.041060369321189
+            ],
+            "name": "AQ",
+            "kw_1": "Biomechanics",
+            "kw_2": "ComputationalChemistry",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_016"
+        },
+        {
+            "pos": [
+                -0.2887261197381869,
+                1.0705812982455263
+            ],
+            "name": "AR",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_017"
+        },
+        {
+            "pos": [
+                0.06725743363345282,
+                1.0701603981248542
+            ],
+            "name": "AS",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_018"
+        },
+        {
+            "pos": [
+                0.26624884710877444,
+                1.10909217946209
+            ],
+            "name": "AT",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_019"
+        },
+        {
+            "pos": [
+                -0.0842952596557284,
+                0.9622191722796049
+            ],
+            "name": "AU",
+            "kw_1": "BayesianModeling",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_020"
+        },
+        {
+            "pos": [
+                0.1185787175563589,
+                0.7361352829775619
+            ],
+            "name": "AV",
+            "kw_1": "Biomechanics",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_021"
+        },
+        {
+            "pos": [
+                0.1000600292674006,
+                1.1023827217708957
+            ],
+            "name": "AW",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "FluidDynamics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_022"
+        },
+        {
+            "pos": [
+                -0.17377046335569546,
+                0.7773557785929119
+            ],
+            "name": "AX",
+            "kw_1": "Visualisation",
+            "kw_2": "Biomechanics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_023"
+        },
+        {
+            "pos": [
+                0.8892570105545103,
+                -1.0817735374344264
+            ],
+            "name": "AY",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "Biomechanics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_024"
+        },
+        {
+            "pos": [
+                1.0421180622507278,
+                -1.0368390919226078
+            ],
+            "name": "AZ",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "Visualisation",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_025"
+        },
+        {
+            "pos": [
+                1.2930243028355357,
+                -1.2387731135511832
+            ],
+            "name": "BA",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "Biomechanics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_026"
+        },
+        {
+            "pos": [
+                0.8253260536569008,
+                -1.2032142892690023
+            ],
+            "name": "BB",
+            "kw_1": "FluidDynamics",
+            "kw_2": "Biomechanics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_027"
+        },
+        {
+            "pos": [
+                1.0918649952792392,
+                -1.1480250384761308
+            ],
+            "name": "BC",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "Biomechanics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_028"
+        },
+        {
+            "pos": [
+                0.9797864637137838,
+                -1.1533446447990383
+            ],
+            "name": "BD",
+            "kw_1": "QuantumComputing",
+            "kw_2": "Biomechanics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_029"
+        },
+        {
+            "pos": [
+                0.7953817501873118,
+                -1.2337749153014168
+            ],
+            "name": "BE",
+            "kw_1": "Biomechanics",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_030"
+        },
+        {
+            "pos": [
+                1.093797753679164,
+                -1.2170902291908317
+            ],
+            "name": "BF",
+            "kw_1": "FluidDynamics",
+            "kw_2": "QuantumComputing",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_031"
+        },
+        {
+            "pos": [
+                -1.1820505829919679,
+                -1.0787648976034214
+            ],
+            "name": "BG",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "Biomechanics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_032"
+        },
+        {
+            "pos": [
+                -0.8074040620912389,
+                -1.2417392345241631
+            ],
+            "name": "BH",
+            "kw_1": "Visualisation",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_033"
+        },
+        {
+            "pos": [
+                -0.7972330555007177,
+                -1.2423409552636222
+            ],
+            "name": "BI",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "FluidDynamics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_034"
+        },
+        {
+            "pos": [
+                -0.7141243209919625,
+                -1.018809279011379
+            ],
+            "name": "BJ",
+            "kw_1": "FluidDynamics",
+            "kw_2": "Visualisation",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_035"
+        },
+        {
+            "pos": [
+                -0.7139433470857977,
+                -0.9370926881529724
+            ],
+            "name": "BK",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_036"
+        },
+        {
+            "pos": [
+                -0.856441852361019,
+                -1.2764873246474076
+            ],
+            "name": "BL",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "FluidDynamics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_037"
+        },
+        {
+            "pos": [
+                -1.1303158224541543,
+                -1.2278820632720986
+            ],
+            "name": "BM",
+            "kw_1": "Biomechanics",
+            "kw_2": "FluidDynamics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_038"
+        },
+        {
+            "pos": [
+                -1.1223158814867131,
+                -1.2287633686274535
+            ],
+            "name": "BN",
+            "kw_1": "Biomechanics",
+            "kw_2": "Visualisation",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_039"
+        },
+        {
+            "pos": [
+                -1.1092100923636143,
+                -1.051442203291198
+            ],
+            "name": "BO",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_040"
+        },
+        {
+            "pos": [
+                -1.2615115021907295,
+                -0.8845167283779881
+            ],
+            "name": "BP",
+            "kw_1": "Biomechanics",
+            "kw_2": "Visualisation",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_041"
+        },
+        {
+            "pos": [
+                -0.9600391274760549,
+                -1.1407663054363328
+            ],
+            "name": "BQ",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_042"
+        },
+        {
+            "pos": [
+                -0.9860511679199802,
+                -1.243635693544935
+            ],
+            "name": "BR",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "QuantumComputing",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_043"
+        },
+        {
+            "pos": [
+                -0.9544321026662924,
+                -0.7424222814542716
+            ],
+            "name": "BS",
+            "kw_1": "Visualisation",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_044"
+        },
+        {
+            "pos": [
+                -1.1088586285292057,
+                -0.899553772021791
+            ],
+            "name": "BT",
+            "kw_1": "Biomechanics",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_045"
+        },
+        {
+            "pos": [
+                -1.2209212825573648,
+                -0.8702036775288606
+            ],
+            "name": "BU",
+            "kw_1": "FluidDynamics",
+            "kw_2": "BayesianModeling",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_046"
+        },
+        {
+            "pos": [
+                -1.1263563442316793,
+                -1.19008518279573
+            ],
+            "name": "BV",
+            "kw_1": "BayesianModeling",
+            "kw_2": "QuantumComputing",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_047"
+        },
+        {
+            "pos": [
+                -0.9480922391139501,
+                -1.2879354722875038
+            ],
+            "name": "BW",
+            "kw_1": "Biomechanics",
+            "kw_2": "FluidDynamics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_048"
+        },
+        {
+            "pos": [
+                -0.8026359824695821,
+                -1.2971827142844718
+            ],
+            "name": "BX",
+            "kw_1": "ComputationalChemistry",
+            "kw_2": "ArtificialIntelligence",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_049"
+        },
+        {
+            "pos": [
+                -0.8933100779222619,
+                -1.1379952160847011
+            ],
+            "name": "BY",
+            "kw_1": "QuantumComputing",
+            "kw_2": "FluidDynamics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_050"
+        },
+        {
+            "pos": [
+                -0.858883586726443,
+                -0.722686872929537
+            ],
+            "name": "BZ",
+            "kw_1": "ArtificialIntelligence",
+            "kw_2": "FluidDynamics",
+            "timeslot": "None",
+            "attendence": [
+                1,
+                1,
+                1
+            ],
+            "id": "poster_051"
+        },
+        {
+            "pos": [
+                0.0,
+                -1.0
+            ],
+            "id": "hw_00"
+        }
+    ],
+    "links": [
+        {
+            "distance": 1.0,
+            "source": "room_00",
+            "target": "room_01"
+        },
+        {
+            "distance": 0.13239380560869712,
+            "source": "room_00",
+            "target": "poster_000"
+        },
+        {
+            "distance": 0.06728248039368805,
+            "source": "room_00",
+            "target": "poster_001"
+        },
+        {
+            "distance": 0.0987973961242709,
+            "source": "room_00",
+            "target": "poster_002"
+        },
+        {
+            "distance": 0.23802797844437273,
+            "source": "room_00",
+            "target": "poster_003"
+        },
+        {
+            "distance": 0.2868533642878666,
+            "source": "room_00",
+            "target": "poster_004"
+        },
+        {
+            "distance": 0.17589152658234905,
+            "source": "room_00",
+            "target": "poster_005"
+        },
+        {
+            "distance": 0.2586010864156854,
+            "source": "room_00",
+            "target": "poster_006"
+        },
+        {
+            "distance": 0.35722544740161616,
+            "source": "room_00",
+            "target": "poster_007"
+        },
+        {
+            "distance": 1.0,
+            "source": "room_00",
+            "target": "hw_00"
+        },
+        {
+            "distance": 0.35028200811709237,
+            "source": "room_01",
+            "target": "poster_008"
+        },
+        {
+            "distance": 0.27774243547163113,
+            "source": "room_01",
+            "target": "poster_009"
+        },
+        {
+            "distance": 0.3386527588307915,
+            "source": "room_01",
+            "target": "poster_010"
+        },
+        {
+            "distance": 0.16989692457764888,
+            "source": "room_01",
+            "target": "poster_011"
+        },
+        {
+            "distance": 0.24393693901459604,
+            "source": "room_01",
+            "target": "poster_012"
+        },
+        {
+            "distance": 0.3420143804302887,
+            "source": "room_01",
+            "target": "poster_013"
+        },
+        {
+            "distance": 0.05285429134716723,
+            "source": "room_01",
+            "target": "poster_014"
+        },
+        {
+            "distance": 0.2168634211580334,
+            "source": "room_01",
+            "target": "poster_015"
+        },
+        {
+            "distance": 0.048766377147490735,
+            "source": "room_01",
+            "target": "poster_016"
+        },
+        {
+            "distance": 0.2972280132845721,
+            "source": "room_01",
+            "target": "poster_017"
+        },
+        {
+            "distance": 0.09719076007520651,
+            "source": "room_01",
+            "target": "poster_018"
+        },
+        {
+            "distance": 0.2877317365299497,
+            "source": "room_01",
+            "target": "poster_019"
+        },
+        {
+            "distance": 0.09237468129127618,
+            "source": "room_01",
+            "target": "poster_020"
+        },
+        {
+            "distance": 0.28928446406027764,
+            "source": "room_01",
+            "target": "poster_021"
+        },
+        {
+            "distance": 0.14315806360177447,
+            "source": "room_01",
+            "target": "poster_022"
+        },
+        {
+            "distance": 0.28242985547002913,
+            "source": "room_01",
+            "target": "poster_023"
+        },
+        {
+            "distance": 0.13766234465482333,
+            "source": "room_02",
+            "target": "poster_024"
+        },
+        {
+            "distance": 0.05595578487912156,
+            "source": "room_02",
+            "target": "poster_025"
+        },
+        {
+            "distance": 0.3779892085856129,
+            "source": "room_02",
+            "target": "poster_026"
+        },
+        {
+            "distance": 0.2679683468139057,
+            "source": "room_02",
+            "target": "poster_027"
+        },
+        {
+            "distance": 0.1742142054297371,
+            "source": "room_02",
+            "target": "poster_028"
+        },
+        {
+            "distance": 0.15467115806684,
+            "source": "room_02",
+            "target": "poster_029"
+        },
+        {
+            "distance": 0.310675617293331,
+            "source": "room_02",
+            "target": "poster_030"
+        },
+        {
+            "distance": 0.23648717979075515,
+            "source": "room_02",
+            "target": "poster_031"
+        },
+        {
+            "distance": 1.0,
+            "source": "room_02",
+            "target": "hw_00"
+        },
+        {
+            "distance": 0.19835907809372588,
+            "source": "room_03",
+            "target": "poster_032"
+        },
+        {
+            "distance": 0.3090809809860252,
+            "source": "room_03",
+            "target": "poster_033"
+        },
+        {
+            "distance": 0.31598033543190623,
+            "source": "room_03",
+            "target": "poster_034"
+        },
+        {
+            "distance": 0.286493791948856,
+            "source": "room_03",
+            "target": "poster_035"
+        },
+        {
+            "distance": 0.29289202542967196,
+            "source": "room_03",
+            "target": "poster_036"
+        },
+        {
+            "distance": 0.311535202576236,
+            "source": "room_03",
+            "target": "poster_037"
+        },
+        {
+            "distance": 0.2625118061022235,
+            "source": "room_03",
+            "target": "poster_038"
+        },
+        {
+            "distance": 0.259410589008336,
+            "source": "room_03",
+            "target": "poster_039"
+        },
+        {
+            "distance": 0.12071927995776867,
+            "source": "room_03",
+            "target": "poster_040"
+        },
+        {
+            "distance": 0.2858752381766831,
+            "source": "room_03",
+            "target": "poster_041"
+        },
+        {
+            "distance": 0.14632848006820115,
+            "source": "room_03",
+            "target": "poster_042"
+        },
+        {
+            "distance": 0.24403467189216804,
+            "source": "room_03",
+            "target": "poster_043"
+        },
+        {
+            "distance": 0.2615773582683291,
+            "source": "room_03",
+            "target": "poster_044"
+        },
+        {
+            "distance": 0.14812037577696707,
+            "source": "room_03",
+            "target": "poster_045"
+        },
+        {
+            "distance": 0.25622899604420846,
+            "source": "room_03",
+            "target": "poster_046"
+        },
+        {
+            "distance": 0.22825052562060114,
+            "source": "room_03",
+            "target": "poster_047"
+        },
+        {
+            "distance": 0.2925769161120392,
+            "source": "room_03",
+            "target": "poster_048"
+        },
+        {
+            "distance": 0.3567493813382626,
+            "source": "room_03",
+            "target": "poster_049"
+        },
+        {
+            "distance": 0.17442883687973493,
+            "source": "room_03",
+            "target": "poster_050"
+        },
+        {
+            "distance": 0.3111533585561822,
+            "source": "room_03",
+            "target": "poster_051"
+        },
+        {
+            "distance": 1.0,
+            "source": "room_03",
+            "target": "hw_00"
+        }
+    ]
+}

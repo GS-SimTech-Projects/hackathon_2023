@@ -1,5 +1,5 @@
-# from hackathon.time_assignment.create_similarity_matrix import create_similarity_matrix
-# from hackathon.time_assignment.utils import read_csv
+# from hackathon.time_assignment import create_similarity_matrix
+# from hackathon.time_assignment import read_csv
 
 # def test_matrix():
 #     data = read_csv()

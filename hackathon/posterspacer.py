@@ -3,12 +3,7 @@ room.
 """
 
 
-import os
-from pathlib import Path
-
 import numpy as np
-
-from .csvreader import extract_floor_plan
 
 
 class PosterSpacer:

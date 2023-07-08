@@ -12,16 +12,53 @@ def create_matrix(n):
 def find_pairs(A):
     n = np.shape(A)[0]
     matching_pair = []
-    print("n=",n)
     for row in range (n):
-        print("row=",row)
         for column in range (row+1, n):
-            print("column=",column)
             if (A[row][column]==2):
-                print("matching pair", (row,column))
-                matching_pair.append((row,column))
-    return matching_pair
+                matching_pair.append(np.array([row,column]))
+    return np.array(matching_pair)
 
+def get_clusters(pair_lst):
+    '''
+    Creates clusters out of the pairs of posters with matching keywords, depth-first-search-style.
+    This only creates one cluster per run, but goes through the pairs recursively until all
+    posters have been clustered.
+    '''
+    binary_mask = np.array([True] * pair_lst.shape[0])
+    cluster_lst = []
+    cluster = []
+    cluster += list(pair_lst[0])
+    binary_mask[0] = False
+    search_lst = []
+    search_lst += list(pair_lst[0])
+    while len(search_lst) > 0:
+        entry = search_lst.pop(0)
+        for idx,pair in enumerate(pair_lst):
+            if not binary_mask[idx]:
+                continue
+            check = pair == entry
+            if check.any():
+                binary_mask[idx] = False
+                to_be_added = list(pair[np.logical_not(check)])
+                if not to_be_added in search_lst:
+                    search_lst += to_be_added
+                if not to_be_added in cluster:
+                    cluster += to_be_added
+    cluster_lst.append(cluster)
+    if binary_mask.any(): # rescursion
+        cluster_lst += get_clusters(pair_lst[binary_mask])
+    return cluster_lst
+
+def all_posters_used(cluster_lst,n_posters):
+    '''
+    Function to check if all posters are accounted for in one of the clusters
+    '''
+    poster_count = 0
+    for cluster in cluster_lst:
+        poster_count += len(cluster)
+    if not  poster_count == n_posters:
+        raise ValueError('Number of posters across all clusters does not match the number of posters that were read in from file! {} posters missing'.format(abs(poster_count - n_posters)))
+    return True
 
 def assign_cluster_to_room(clusters, rooms):
     #assume rooms are ordered from more to less poster space
@@ -41,29 +78,11 @@ def assign_cluster_to_room(clusters, rooms):
                 break
         i+=1
 
-# clusters = [7,5,4,3]
-# rooms = [12, 6, 2]
+data = read_csv("../sample_inputs/poster_data.csv")
+similarity_matrix = create_similarity_matrix(data)
+n_posters = similarity_matrix.shape[0]
+matching_pairs = find_pairs(similarity_matrix)
+cluster_lst = get_clusters(matching_pairs)
+if all_posters_used(cluster_lst,n_posters):
+    print('done!')
 
-# assign_cluster_to_room(clusters,rooms)
-
-# data = read_csv("../sample_inputs/poster_data.csv")
-# A = create_similarity_matrix(data)
-
-# print(A)
-# matching_pair = find_pairs(A)
-# print(matching_pair)
-
-#TODO
-# place one poster
-# check this posters score with all the others
-# do a ranking
-# build a cluster with maximum score
-#   first take all the score two
-#   then take score ones to fill up, if there are spots left
-
-A = np.eye(3)
-A[1,2] = 2.0
-print(A)
-matching_pair=find_pairs(A)
-print(matching_pair)
-assign_clusters(matching_pair)

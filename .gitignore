@@ -1,4 +1,8 @@
 # Byte-compiled / optimized / DLL files
+#
+.gitignore
+**/*.swp
+*.ipynb
 __pycache__/
 *.py[cod]
 *$py.class

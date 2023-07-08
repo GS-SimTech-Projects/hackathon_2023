@@ -1,6 +1,7 @@
 import numpy as np
 from time_assignment.create_similarity_matrix import create_similarity_matrix
 from time_assignment.utils import read_csv
+import networkx as nx
 
 def create_matrix(n):
     b = np.random.randint(0,2,size=(n,n))
@@ -84,8 +85,14 @@ def assign_cluster_to_room(cluster_lst, room_capacity):
         i+=1
     return
 
-def get_room_graph(graph_file):
-    
+def get_room_capacity(graph_file):
+   room_graph = nx.read_gml(graph_file)
+   room_capacity = {}
+   #print(list(room_graph.nodes()))
+   for node in room_graph.nodes():
+       if 'room' in node:
+           print(node)
+   return room_capacity,room_graph
 
 poster_data = read_csv("../sample_inputs/poster_data.csv")
 similarity_matrix = create_similarity_matrix(poster_data)
@@ -94,7 +101,7 @@ matching_pairs = find_pairs(similarity_matrix)
 cluster_lst = get_clusters(matching_pairs)
 if all_posters_used(cluster_lst,n_posters):
     print('Posters clustered successfully!')
-room_graph_file = ''
-room_graph = get_room_graph()
-placement = assign_clusters_to room(cluster_lst,room_capacity)
+room_graph_file = '../sample_inputs/graph_without_poster_assignment.gml'
+room_capacity, room_graph = get_room_capacity(room_graph_file)
+#placement = assign_cluster_to_room(cluster_lst,room_capacity)
 

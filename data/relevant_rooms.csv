@@ -1,0 +1,5 @@
+room,square_meters,square_feet,l_w_h,chairs_only,table_rows,u_tables,chair_circle,long_table,round_table,half_round_table,random,standing_table
+Hermannsburg,24,258.33,6.4x3.8x2.9,15,10,6,8,10,8,10,,
+Lüneburg,61,656.59,9.5x6.4x2.9,50,30,18,15,15,40,25,,50
+Potsdam,54,581.25,9.6x5.6x2.9,40,25,15,15,12,40,25,,40
+Bad Boll,31,333.68,6.8x4.6x2.9,18,10,6,8,8,8,10,,20

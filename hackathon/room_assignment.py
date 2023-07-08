@@ -61,7 +61,7 @@ def all_posters_used(cluster_lst,n_posters):
         raise ValueError('Number of posters across all clusters does not match the number of posters that were read in from file! {} posters missing'.format(abs(poster_count - n_posters)))
     return True
 
-def assign_cluster_to_room(cluster_lst, room_capacity):
+def assign_cluster_to_room(cluster_lst, room_info):
     '''
     Assigns clusters to rooms based on capacity.
     Creates a dict to keep track of what is where and how much space is left
@@ -85,14 +85,17 @@ def assign_cluster_to_room(cluster_lst, room_capacity):
         i+=1
     return
 
-def get_room_capacity(graph_file):
+def get_room_info(graph_file):
    room_graph = nx.read_gml(graph_file)
-   room_capacity = {}
-   #print(list(room_graph.nodes()))
-   for node in room_graph.nodes():
-       if 'room' in node:
-           print(node)
-   return room_capacity,room_graph
+   room_info = []
+   room_data = [[node,data] for node,data in room_graph.nodes.data() if node.startswith('room')]
+   for idx,room in enumerate(room_data):
+      room_info.append({})
+      room_info[idx]['ID'] = room[0]
+      room_info[idx]['name'] = room[1]['room_name']
+      room_info[idx]['n_posters'] = room[1]['n_posters']
+   print(room_info)
+   return room_info,room_graph
 
 def flatten_sum(matrix):
     return sum(matrix, [])
@@ -128,6 +131,6 @@ cluster_lst = get_clusters(matching_pairs)
 if all_posters_used(cluster_lst,n_posters):
     print('Posters clustered successfully!')
 room_graph_file = '../sample_inputs/graph_without_poster_assignment.gml'
-room_capacity, room_graph = get_room_capacity(room_graph_file)
+room_info, room_graph = get_room_info(room_graph_file)
 #placement = assign_cluster_to_room(cluster_lst,room_capacity)
 

@@ -1,5 +1,6 @@
 import numpy as np
 from pandas_ods_reader import read_ods
+from time_assignment.utils import *
 
 def get_data(path):
     data = read_ods(path)
@@ -25,8 +26,8 @@ def find_pairs(A):
                 matching_pair.append((row,column))
     return matching_pair
 
-input_file = '../data/poster_registrations.ods'
-data = get_data(input_file)
+input_file = '../sample_inputs/poster_data.csv'
+data = read_csv(input_file)
 print(data)
 n = 6
 A = create_matrix(n)

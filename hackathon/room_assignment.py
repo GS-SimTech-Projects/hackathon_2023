@@ -94,8 +94,34 @@ def get_room_capacity(graph_file):
            print(node)
    return room_capacity,room_graph
 
-poster_data = read_csv("../sample_inputs/poster_data.csv")
-similarity_matrix = create_similarity_matrix(poster_data)
+def flatten_sum(matrix):
+    return sum(matrix, [])
+
+def find_common_ones(i, A):
+    i = int(i)
+    posters = []
+    n = np.shape(A)[0]
+    for k in range(i+1,n):
+        if (A[i][k]==1.0):
+            posters.append(k)
+
+    return posters
+
+def fill_up_rooms(available_space_in_room, posters_in_room, A):
+    added_posters = flatten_sum(posters_in_room)
+    for room in range(len(available_space_in_room)):
+        if (available_space_in_room[room] > 0):
+            for poster in posters_in_room[room]:
+                poster_ones = find_common_ones(poster,A)
+                for ones in poster_ones:
+                    if (available_space_in_room[room] > 0) and ones not in added_posters:
+                        added_posters.append(ones)
+                        posters_in_room[room].append(ones)
+                        available_space_in_room[room]-=1
+    return posters_in_room, available_space_in_room              
+
+data = read_csv("../sample_inputs/poster_data.csv")
+similarity_matrix = create_similarity_matrix(data)
 n_posters = similarity_matrix.shape[0]
 matching_pairs = find_pairs(similarity_matrix)
 cluster_lst = get_clusters(matching_pairs)

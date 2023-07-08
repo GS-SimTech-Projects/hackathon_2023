@@ -121,7 +121,19 @@ def fill_up_rooms(available_space_in_room, posters_in_room, A):
                         added_posters.append(ones)
                         posters_in_room[room].append(ones)
                         available_space_in_room[room]-=1
-    return posters_in_room, available_space_in_room              
+    missing_poster = []
+    for i in range (np.shape(A)[0]):
+        if i not in added_posters:
+            missing_poster.append(i)
+
+    for poster in missing_poster:
+        for room in range(len(available_space_in_room)):
+            while (available_space_in_room[room] > 0):
+                added_posters.append(poster)
+                posters_in_room[room].append(poster)
+                available_space_in_room -= 1
+            
+    return posters_in_room, available_space_in_room            
 
 data = read_csv("../sample_inputs/poster_data.csv")
 similarity_matrix = create_similarity_matrix(data)

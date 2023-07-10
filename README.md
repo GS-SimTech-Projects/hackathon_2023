@@ -18,3 +18,9 @@ Make sure to check out the CONTRIBUTING guidelines.
 
 - the programming language is Python
 - internal representation of the data should be a networkx graph
+
+## Scope 1 - extracting the information from the input files and represent them as a graph
+
+### Links
+- [Seminaris Floor 2](https://my.matterport.com/show/?m=WZbCFTconCW)
+- [Seminaris Fact Sheet PDF Link](https://www.seminaris.de/wp-content/uploads/2022/06/seminaris-hotel-badboll-conference-factsheet-A4.pdf)

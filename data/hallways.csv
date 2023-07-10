@@ -1,0 +1,7 @@
+name,global_x,global_y,relative_position,floor
+hallway_00, 9.40, 9.00,left,2
+hallway_01,14.00, 7.70,right,2
+hallway_02,22.00, 7.70,stairs,2
+hallway_03, 9.42, 4.76,stairs,1
+hallway_04,11.36, 9.38,middle,1
+hallway_05, 0.6 , 6.8 ,lowerleft,1

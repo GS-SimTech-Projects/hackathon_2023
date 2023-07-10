@@ -247,5 +247,8 @@ if __name__ == '__main__':
     ## plot the graph
     fig, ax = plot_graph( room_layout, plot_labels=False)
     plt.show()
-    ## save the graph
-    ##nx.write_gml(room_layout, "../data/floor2_room+hallway+poster_layout.gml")
+    ## save the grape
+    for nodename, metadata in room_layout.nodes.data():
+        metadata['floor'] = int(metadata['floor']) ##workaround for error because it somehow 
+        # could not store the metadata without rebroadcasting to the int
+    nx.write_gml(room_layout, "../data/floor2_room+hallway+poster_layout.gml")
